@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FISH TANK!</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <canvas id="mycanvas"></canvas>
+    <script src="pixi.js"></script>
+    <script type="text/javascript">
+
+      const canvas = document.getElementById('mycanvas');
+
+      const app = new PIXI.Application({
+        view: canvas,
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+      
+      const texture = PIXI.Texture.from('sprite.png');
+      const texture2 = PIXI.Texture.from('jimmy1x.png');
+      const texture3 = PIXI.Texture.from('spriteInv.png');
+      // const img = new PIXI.Sprite(texture);
+
+      let sprite1,
+          sprite2,
+          sprite3;
+      
+      // img = new PIXI.Sprite(texture2);
+      // img.x = app.renderer.width / 2;
+      // img.y = app.renderer.height / 2;
+      // img.anchor,x = 0.5;
+      // img.anchor.y = 0.5;
+      // app.stage.addChild(img);
+
+      let container = new PIXI.Container();
+      app.stage.addChild(container);
+
+      sprite1 = new PIXI.Sprite(texture3);
+      sprite1.y = 100;
+      sprite1.x = 600;
+      container.addChild(sprite1);
+
+      sprite2 = new PIXI.Sprite(texture);
+      sprite2.y = 400;
+      sprite2.x = 900;
+      container.addChild(sprite2);
+
+      sprite3 = new PIXI.Sprite(texture2);
+      sprite3.y = 400;
+      sprite3.x = 1000;
+      container.addChild(sprite3);
+
+      app.ticker.add(animate);
+      
+
+      let delta = 0;
+
+      function animate() {
+        delta += 0.025;
+
+        sprite1.y = 150 + Math.sin(delta + 1.5) * 3;
+        sprite1.x += 0.5;
+        
+        sprite2.y = 550 + Math.sin(delta) * 3;
+        sprite2.x -= 0.4;
+
+        sprite3.y = 400 + Math.sin(delta + -1.5) * 3;
+        sprite3.x -= 0.2;
+
+      }
+
+    </script>
+
+
+
+    <!-- jQuery (Bootstrap JS plugins depend on it) -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

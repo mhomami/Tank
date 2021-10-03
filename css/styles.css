@@ -4,5 +4,5 @@ body{
 
 canvas{
     display: block;
-    background: blue;
+    background-image: url("../tank background 1.jpg");
 }

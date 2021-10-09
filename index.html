@@ -12,76 +12,10 @@
   </head>
   <body>
     <canvas id="mycanvas"></canvas>
-    <script src="pixi.js"></script>
-    <script type="text/javascript">
-
-      const canvas = document.getElementById('mycanvas');
-
-      const app = new PIXI.Application({
-        view: canvas,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        transparent: true
-      });
-      
-      const driver1 = PIXI.Texture.from('driver_pix3x.png');
-      const texture2 = PIXI.Texture.from('jimmy1x_pix.png');
-      const driver2 = PIXI.Texture.from('driver_pix_inv3x.png');
-      // const img = new PIXI.Sprite(texture);
-
-      let driver2sprite,
-          driver1sprite,
-          sprite3;
-      
-      // img = new PIXI.Sprite(texture2);
-      // img.x = app.renderer.width / 2;
-      // img.y = app.renderer.height / 2;
-      // img.anchor,x = 0.5;
-      // img.anchor.y = 0.5;
-      // app.stage.addChild(img);
-
-      let container = new PIXI.Container();
-      app.stage.addChild(container);
-
-      driver2sprite = new PIXI.Sprite(driver2);
-      driver2sprite.y = 100;
-      driver2sprite.x = 600;
-      container.addChild(driver2sprite);
-
-      driver1sprite = new PIXI.Sprite(driver1);
-      driver1sprite.y = 400;
-      driver1sprite.x = 900;
-      container.addChild(driver1sprite);
-
-      sprite3 = new PIXI.Sprite(texture2);
-      sprite3.y = 400;
-      sprite3.x = 1000;
-      container.addChild(sprite3);
-
-      app.ticker.add(animate);
-      
-
-      let delta = 0;
-
-      function animate() {
-        delta += 0.025;
-
-        driver2sprite.y = 150 + Math.sin(delta + 1.5) * 3;
-        driver2sprite.x += 0.5;
-        
-        driver1sprite.y = 550 + Math.sin(delta) * 3;
-        driver1sprite.x -= 0.4;
-
-        sprite3.y = 400 + Math.sin(delta + -1.5) * 3;
-        sprite3.x -= 0.2;
-
-      }
-
-    </script>
-
 
 
     <!-- jQuery (Bootstrap JS plugins depend on it) -->
+    <script src="pixi.js"></script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>

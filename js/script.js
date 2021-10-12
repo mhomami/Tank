@@ -25,6 +25,10 @@ function randomY(){
   return Math.floor(Math.random()*_h);
 }
 
+function newSprite(spriteName, spriteFile){
+  return spriteName = new PIXI.Sprite(spriteFile);
+}
+
 const stage = new PIXI.Container();
 const driver1 = PIXI.Texture.from('driver_pix3x.png');
 const driver2 = PIXI.Texture.from('driver_pix_inv3x.png');
@@ -36,7 +40,7 @@ const bitsImages = ["bits_pix3x1.png", "bits_pix3x2.png", "bits_pix3x3.png", "bi
 
 const textureArray = bitsImages.map( image => PIXI.Texture.from(image));
 
-let driver2sprite, jimmy1sprite, driver1sprite, bits1sprite, bits2sprite, bits3sprite, bits4sprite;
+let driver1sprite, driver2sprite, jimmy1sprite, bits1sprite, bits2sprite, bits3sprite, bits4sprite;
 
 /* PIXI.Loader.shared.add("../bits_pix3x.json").load(setup);
 
@@ -45,9 +49,14 @@ function setup(){
   animatedSprite = new PIXI.AnimatedSprite(sheet.animations["image_sequence"]);
 } */
 
-driver1sprite = new PIXI.Sprite(driver1);
+// driver1sprite = stage.addChild(new PIXI.Sprite(driver1));
+
+driver1sprite = newSprite(driver1sprite, driver1);
 driver1sprite.x = _w + 600;
-stage.addChild(driver1sprite);
+
+// driver1sprite = new PIXI.Sprite(driver1);
+// driver1sprite.x = _w + 600;
+// stage.addChild(driver1sprite);
 
 driver2sprite = new PIXI.Sprite(driver2);
 driver2sprite.x = _w - (_w + 400);

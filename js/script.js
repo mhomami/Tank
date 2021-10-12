@@ -29,12 +29,15 @@ const jimmy1 = PIXI.Texture.from('jimmy1x_pix.png');
 let bitsImages = ["bits_pix3x1.png", "bits_pix3x2.png", "bits_pix3x3.png", "bits_pix3x4.png",
 "bits_pix3x5.png","bits_pix3x6.png","bits_pix3x7.png","bits_pix3x8.png","bits_pix3x9.png",
 "bits_pix3x10.png","bits_pix3x11.png"];
-let textureArray = [];
+
+const textureArray = bitsImages.map( image => PIXI.Texture.from(image));
+
+/* let textureArray = [];
 
 for (let i=0; i < 11; i++){
   let texture = PIXI.Texture.from(bitsImages[i]);
   textureArray.push(texture);
-};
+}; */
 
 let driver2sprite, driver1sprite, jimmy1sprite, bits1sprite, bits2sprite, bits3sprite, bits4sprite;
 

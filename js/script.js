@@ -21,25 +21,22 @@ function resize(){
   renderer.resize(_w, _h);
 }
 
+function randomY(){
+  return Math.floor(Math.random()*_h);
+}
+
 const stage = new PIXI.Container();
 const driver1 = PIXI.Texture.from('driver_pix3x.png');
 const driver2 = PIXI.Texture.from('driver_pix_inv3x.png');
 const jimmy1 = PIXI.Texture.from('jimmy1x_pix.png');
 
-let bitsImages = ["bits_pix3x1.png", "bits_pix3x2.png", "bits_pix3x3.png", "bits_pix3x4.png",
+const bitsImages = ["bits_pix3x1.png", "bits_pix3x2.png", "bits_pix3x3.png", "bits_pix3x4.png",
 "bits_pix3x5.png","bits_pix3x6.png","bits_pix3x7.png","bits_pix3x8.png","bits_pix3x9.png",
 "bits_pix3x10.png","bits_pix3x11.png"];
 
 const textureArray = bitsImages.map( image => PIXI.Texture.from(image));
 
-/* let textureArray = [];
-
-for (let i=0; i < 11; i++){
-  let texture = PIXI.Texture.from(bitsImages[i]);
-  textureArray.push(texture);
-}; */
-
-let driver2sprite, driver1sprite, jimmy1sprite, bits1sprite, bits2sprite, bits3sprite, bits4sprite;
+let driver2sprite, jimmy1sprite, driver1sprite, bits1sprite, bits2sprite, bits3sprite, bits4sprite;
 
 /* PIXI.Loader.shared.add("../bits_pix3x.json").load(setup);
 
@@ -93,7 +90,7 @@ ticker.add(animate);
 ticker.start();
 
 let delta = 0;
-y1 = Math.floor(Math.random() * _h);
+y1 = randomY();
 y2 = Math.floor(Math.random() * _h);
 y3 = Math.floor(Math.random() * _h);
 
@@ -101,8 +98,8 @@ function animate(){
   delta += 0.025;
   rndInt = Math.floor(Math.random() * _h);
   
-  driver1sprite.y = y2 + Math.sin(delta) * 5;
-  driver2sprite.y = y1 + Math.sin(delta + 1.5) * 5;
+  driver1sprite.y = y1 + Math.sin(delta) * 5;
+  driver2sprite.y = y2 + Math.sin(delta + 1.5) * 5;
 
   jimmy1sprite.y = y3 + Math.cos(delta) * 5;
 

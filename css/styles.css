@@ -9,5 +9,5 @@ body{
 
 canvas{
     display: block;
-    background-image: url("../tank background 1.jpg");
+    background-image: url("/img/tankbg.jpg");
 }

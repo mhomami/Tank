@@ -36,24 +36,24 @@ function makeGif(gifFile){
 }
 
 const stage = new PIXI.Container();
-const driver1 = PIXI.Texture.from('/img/driver_pix3x.png');
-const driver2 = PIXI.Texture.from('/img/driver_pix_inv3x.png');
-const jimmy1 = PIXI.Texture.from('/img/jimmy1x_pix.png');
+const driver1 = PIXI.Texture.from('img/driver_pix3x.png');
+const driver2 = PIXI.Texture.from('img/driver_pix_inv3x.png');
+const jimmy1 = PIXI.Texture.from('img/jimmy1x_pix.png');
 // const bit1 = PIXI.Texture.from('/img/1bit_pix.png');
 
 // animate bits
-const bitsImages = ["/img/bits_pix3x1.png", "/img/bits_pix3x2.png", "/img/bits_pix3x3.png", "/img/bits_pix3x4.png",
-"/img/bits_pix3x5.png","/img/bits_pix3x6.png","/img/bits_pix3x7.png","/img/bits_pix3x8.png","/img/bits_pix3x9.png",
-"/img/bits_pix3x10.png","/img/bits_pix3x11.png"];
+const bitsImages = ["img/bits_pix3x1.png", "img/bits_pix3x2.png", "img/bits_pix3x3.png", "img/bits_pix3x4.png",
+"img/bits_pix3x5.png","img/bits_pix3x6.png","img/bits_pix3x7.png","img/bits_pix3x8.png","img/bits_pix3x9.png",
+"img/bits_pix3x10.png","img/bits_pix3x11.png"];
 const textureArray = bitsImages.map(image => PIXI.Texture.from(image));
 
 //animate hungry driver - left to right
-const dEatingImg = ["/img/driver_eating/driver_eatingR1.png", "/img/driver_eating/driver_eatingR2.png",
-"/img/driver_eating/driver_eatingR3.png","/img/driver_eating/driver_eatingR4.png","/img/driver_eating/driver_eatingR5.png",
-"/img/driver_eating/driver_eatingR6.png","/img/driver_eating/driver_eatingR7.png","/img/driver_eating/driver_eatingR8.png",
-"/img/driver_eating/driver_eatingR9.png","/img/driver_eating/driver_eatingR10.png","/img/driver_eating/driver_eatingR11.png",
-"/img/driver_eating/driver_eatingR12.png","/img/driver_eating/driver_eatingR13.png","/img/driver_eating/driver_eatingR14.png",
-"/img/driver_eating/driver_eatingR15.png","/img/driver_eating/driver_eatingR16.png","/img/driver_eating/driver_eatingR17.png",];
+const dEatingImg = ["img/driver_eating/driver_eatingR1.png", "img/driver_eating/driver_eatingR2.png",
+"img/driver_eating/driver_eatingR3.png","img/driver_eating/driver_eatingR4.png","img/driver_eating/driver_eatingR5.png",
+"img/driver_eating/driver_eatingR6.png","img/driver_eating/driver_eatingR7.png","img/driver_eating/driver_eatingR8.png",
+"img/driver_eating/driver_eatingR9.png","img/driver_eating/driver_eatingR10.png","img/driver_eating/driver_eatingR11.png",
+"img/driver_eating/driver_eatingR12.png","img/driver_eating/driver_eatingR13.png","img/driver_eating/driver_eatingR14.png",
+"img/driver_eating/driver_eatingR15.png","img/driver_eating/driver_eatingR16.png","img/driver_eating/driver_eatingR17.png",];
 const dEatingArray = dEatingImg.map(image => PIXI.Texture.from(image));
 
 // initial setup for drivers and jimmy

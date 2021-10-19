@@ -39,6 +39,7 @@ const stage = new PIXI.Container();
 const driver1 = PIXI.Texture.from('/img/driver_pix3x.png');
 const driver2 = PIXI.Texture.from('/img/driver_pix_inv3x.png');
 const jimmy1 = PIXI.Texture.from('/img/jimmy1x_pix.png');
+// const bit1 = PIXI.Texture.from('/img/1bit_pix.png');
 
 // animate bits
 const bitsImages = ["/img/bits_pix3x1.png", "/img/bits_pix3x2.png", "/img/bits_pix3x3.png", "/img/bits_pix3x4.png",
@@ -46,8 +47,16 @@ const bitsImages = ["/img/bits_pix3x1.png", "/img/bits_pix3x2.png", "/img/bits_p
 "/img/bits_pix3x10.png","/img/bits_pix3x11.png"];
 const textureArray = bitsImages.map(image => PIXI.Texture.from(image));
 
+//animate hungry driver - left to right
+const dEatingImg = ["/img/driver_eating/driver_eatingR1.png", "/img/driver_eating/driver_eatingR2.png",
+"/img/driver_eating/driver_eatingR3.png","/img/driver_eating/driver_eatingR4.png","/img/driver_eating/driver_eatingR5.png",
+"/img/driver_eating/driver_eatingR6.png","/img/driver_eating/driver_eatingR7.png","/img/driver_eating/driver_eatingR8.png",
+"/img/driver_eating/driver_eatingR9.png","/img/driver_eating/driver_eatingR10.png","/img/driver_eating/driver_eatingR11.png",
+"/img/driver_eating/driver_eatingR12.png","/img/driver_eating/driver_eatingR13.png","/img/driver_eating/driver_eatingR14.png",
+"/img/driver_eating/driver_eatingR15.png","/img/driver_eating/driver_eatingR16.png","/img/driver_eating/driver_eatingR17.png",];
+const dEatingArray = dEatingImg.map(image => PIXI.Texture.from(image));
+
 // initial setup for drivers and jimmy
-// x and y get overwritten in the animate function once fish are reset when they drift offscreen
 const driver1sprite = makeSprite(driver1);
 driver1sprite.x = -500;
 
@@ -57,6 +66,16 @@ driver2sprite.x = _w + 400;
 const jimmy1sprite = makeSprite(jimmy1);
 jimmy1sprite.x = -600;
 
+/* const driver4sprite = makeSprite(driver2);
+driver4sprite.x = -400;
+ */
+
+//initial setup for single bits
+/* const bit1r = makeSprite(bit1);
+bit1r.x = -50; */
+
+
+//initial setup for school of bits
 ///////////////////////////// START - find a way to condense this //////////////////////////////////////
 const bits1sprite = makeGif(textureArray);
 bits1sprite.x = -1550;
@@ -81,6 +100,12 @@ bits4sprite.x = -1700;
 bits4sprite.animationSpeed = 0.2;
 bits4sprite.y = 250;
 bits4sprite.play();
+
+const driverEating = makeGif(dEatingArray);
+driverEating.x = -1450;
+driverEating.y = 400;
+
+
 ///////////////////////////// END - find a way to condense this /////////////////////////////////////////
 
 const ticker = new PIXI.Ticker();
@@ -88,7 +113,7 @@ ticker.add(animate);
 ticker.start();
 
 let delta = 0;
-let y1, y2, y3;
+let y1, y2, y3, y4;
 
 function animate(){
   delta += 0.025;
@@ -120,6 +145,29 @@ function animate(){
     jimmy1sprite.y = y3 + Math.cos(delta) * 7;
   };
 
+
+
+  // if (driver4sprite.x > _w + 600){
+  //   y4 = rndY;
+  //   driver4sprite.x = -1200;
+  // }else{
+  //   driver4sprite.x += 7;
+  //   driver4sprite.y = y4;
+  // };
+
+  // if (bit1r.x > _w + 666){
+  //   y4 = rndY;
+  //   bit1r.x = -816;
+  // }else{
+  //   bit1r.x += 7;
+  //   bit1r.y = y4;
+  // };
+
+
+
+
+
+
   if (bits1sprite.x > _w + 600){
     bits1sprite.x = -1150;
     bits1sprite.y = rndY;
@@ -144,4 +192,27 @@ function animate(){
     bits4sprite.y = rndY;
   }
   else bits4sprite.x += 2;
+
+
+
+    if (driverEating.x > _w + 600){
+      y4 = rndY;
+      driverEating.y = y4;
+      driverEating.x = -1450;
+      // driverEating.currentFrame[0];
+    }else if(driverEating.x > 0){
+      driverEating.play();
+      driverEating.loop = false;
+      driverEating.x += 10;
+      driverEating.y -= 1;
+      driverEating.animationSpeed = 0.2;
+
+    }
+    else{
+      driverEating.x += 10;
+      driverEating.y += 1;
+      driverEating.stop();
+    } 
+
+
 }
